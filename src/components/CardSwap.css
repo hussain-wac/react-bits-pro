@@ -27,10 +27,20 @@
   .card-swap-container {
     transform: scale(0.75) translate(25%, 25%);
   }
+
+  .mobile-cardswap-wrapper .card-swap-container {
+    transform: translateX(-50%) scale(1);
+    top: 50px;
+  }
 }
 
 @media (max-width: 480px) {
   .card-swap-container {
     transform: scale(0.55) translate(25%, 25%);
+  }
+
+  .mobile-cardswap-wrapper .card-swap-container {
+    transform: translateX(-50%) scale(1);
+    top: 50px;
   }
 }
