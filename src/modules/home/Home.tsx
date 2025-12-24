@@ -14,8 +14,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-
   const skills = [
     { name: "React", level: 95 },
     { name: "TypeScript", level: 90 },
@@ -30,19 +28,22 @@ export default function Home() {
       role: "Senior React Developer",
       company: "TechCorp Inc.",
       period: "2022 - Present",
-      description: "Leading frontend architecture for enterprise SaaS platform. Built component library used across 5 products.",
+      description:
+        "Leading frontend architecture for enterprise SaaS platform. Built component library used across 5 products.",
     },
     {
       role: "Frontend Developer",
       company: "StartupXYZ",
       period: "2020 - 2022",
-      description: "Developed React applications with Redux, implemented CI/CD pipelines, and mentored junior developers.",
+      description:
+        "Developed React applications with Redux, implemented CI/CD pipelines, and mentored junior developers.",
     },
     {
       role: "Junior Developer",
       company: "WebAgency",
       period: "2018 - 2020",
-      description: "Built responsive websites and single-page applications using React and modern JavaScript.",
+      description:
+        "Built responsive websites and single-page applications using React and modern JavaScript.",
     },
   ];
 
@@ -50,17 +51,20 @@ export default function Home() {
     {
       title: "E-Commerce Dashboard",
       tech: ["React", "TypeScript", "Chart.js", "Tailwind"],
-      description: "Real-time analytics dashboard with interactive charts and data visualization.",
+      description:
+        "Real-time analytics dashboard with interactive charts and data visualization.",
     },
     {
       title: "Task Management App",
       tech: ["Next.js", "Prisma", "PostgreSQL", "tRPC"],
-      description: "Full-stack task manager with drag-and-drop, real-time updates, and team collaboration.",
+      description:
+        "Full-stack task manager with drag-and-drop, real-time updates, and team collaboration.",
     },
     {
       title: "Component Library",
       tech: ["React", "Storybook", "Radix UI", "CVA"],
-      description: "50+ accessible, customizable components with comprehensive documentation.",
+      description:
+        "50+ accessible, customizable components with comprehensive documentation.",
     },
   ];
 
@@ -75,7 +79,8 @@ export default function Home() {
           React.js Developer
         </p>
         <p className="text-lg text-gray-500 mb-8 max-w-2xl relative z-10">
-          Building performant, scalable web applications with modern React ecosystem
+          Building performant, scalable web applications with modern React
+          ecosystem
         </p>
         <div className="flex gap-4 relative z-10">
           <Link
@@ -95,22 +100,30 @@ export default function Home() {
         {/* Scroll indicator */}
         {showScrollIndicator && (
           <div className="fixed bottom-8 left-1/2 -translate-x-1/2 animate-bounce transition-opacity duration-300 z-50">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
             </svg>
           </div>
         )}
       </section>
 
       {/* Scroll Animated Text Section */}
-      <section className="px-4 md:px-8">
-        <div className="max-w-5xl mx-auto">
-          <ScrollText
-            text="Building exceptional user experiences with React. Crafting performant, scalable, and beautiful web applications that users love."
-            className="text-center"
-          />
-        </div>
-      </section>
+      <ScrollText
+        text="Building exceptional user experiences with React. Crafting performant, scalable, and beautiful web applications that users love."
+        className="text-center"
+        textSize="lg"
+        maxWidth="7xl"
+      />
 
       {/* About Me - ScrollVelocity Section */}
       <section className="py-16 overflow-hidden">
@@ -124,12 +137,19 @@ export default function Home() {
       {/* Skills Section */}
       <section className="min-h-screen px-4 md:px-8 py-24 flex flex-col justify-center">
         <div className="max-w-4xl mx-auto w-full">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">Skills & Expertise</h2>
-          <p className="text-gray-400 mb-12 text-lg">Technologies I work with daily</p>
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            Skills & Expertise
+          </h2>
+          <p className="text-gray-400 mb-12 text-lg">
+            Technologies I work with daily
+          </p>
 
           <div className="grid gap-6">
             {skills.map((skill) => (
-              <div key={skill.name} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <div
+                key={skill.name}
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+              >
                 <div className="flex justify-between mb-3">
                   <span className="font-semibold text-lg">{skill.name}</span>
                   <span className="text-gray-400">{skill.level}%</span>
@@ -145,13 +165,25 @@ export default function Home() {
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3">
-            {["Git", "REST APIs", "GraphQL", "Jest", "Cypress", "Webpack", "Vite", "Docker", "AWS", "Figma"].map(
-              (tool) => (
-                <span key={tool} className="px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20">
-                  {tool}
-                </span>
-              )
-            )}
+            {[
+              "Git",
+              "REST APIs",
+              "GraphQL",
+              "Jest",
+              "Cypress",
+              "Webpack",
+              "Vite",
+              "Docker",
+              "AWS",
+              "Figma",
+            ].map((tool) => (
+              <span
+                key={tool}
+                className="px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20"
+              >
+                {tool}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -171,7 +203,9 @@ export default function Home() {
                     <h3 className="text-2xl font-bold">{exp.role}</h3>
                     <p className="text-purple-400">{exp.company}</p>
                   </div>
-                  <span className="text-gray-500 mt-2 md:mt-0">{exp.period}</span>
+                  <span className="text-gray-500 mt-2 md:mt-0">
+                    {exp.period}
+                  </span>
                 </div>
                 <p className="text-gray-400">{exp.description}</p>
               </div>
@@ -180,10 +214,21 @@ export default function Home() {
         </div>
       </section>
 
+
+        <section className="py-16 overflow-hidden">
+        <ScrollVelocity
+          texts={["React Developer", "UI/UX Enthusiast"]}
+          velocity={80}
+          className="text-4xl md:text-6xl font-bold text-white/50"
+        />
+      </section>
+
       {/* Featured Projects Section */}
       <section className="min-h-screen px-4 md:px-8 py-24 flex flex-col justify-center">
         <div className="max-w-4xl mx-auto w-full">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured Projects</h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            Featured Projects
+          </h2>
           <p className="text-gray-400 mb-12 text-lg">Some things I've built</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -193,17 +238,32 @@ export default function Home() {
                 className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 mb-4 flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                    />
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+                <p className="text-gray-400 text-sm mb-4">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span key={t} className="px-2 py-1 bg-white/10 rounded text-xs">
+                    <span
+                      key={t}
+                      className="px-2 py-1 bg-white/10 rounded text-xs"
+                    >
                       {t}
                     </span>
                   ))}
@@ -218,8 +278,18 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors"
             >
               View All Projects
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </Link>
           </div>
@@ -229,17 +299,30 @@ export default function Home() {
       {/* CTA Section */}
       <section className="px-4 md:px-8 py-24">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">Let's Work Together</h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            Let's Work Together
+          </h2>
           <p className="text-gray-400 mb-8 text-lg max-w-xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities to be part of your vision.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 font-semibold rounded-full hover:opacity-90 transition-opacity"
           >
             Start a Conversation
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </Link>
         </div>
@@ -248,11 +331,28 @@ export default function Home() {
       {/* Footer */}
       <footer className="px-4 md:px-8 py-12 border-t border-white/10">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500">© 2024 Muhammed Hussain. Built with React & Love.</p>
+          <p className="text-gray-500">
+            © 2024 Muhammed Hussain. Built with React & Love.
+          </p>
           <div className="flex gap-6">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">GitHub</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Twitter</a>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="#"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              Twitter
+            </a>
           </div>
         </div>
       </footer>

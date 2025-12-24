@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import CardSwap, { Card } from "../../components/CardSwap";
 import CountUp from "@/components/CountUp";
+import ScrollFloat from "@/components/ScrollFloat";
 
 
 const projects = [
@@ -160,7 +161,6 @@ export default function Projects() {
           </div>
         </div>
       </div>
-
       {/* Parallax Scrolling Section */}
       <ParallaxSection />
     </>
