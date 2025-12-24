@@ -1,4 +1,3 @@
-import { Menu, X } from "lucide-react";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import GooeyNav from "./GooeyNav";
@@ -81,74 +80,100 @@ const Layout = () => {
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <button className="md:hidden text-white z-[10000] relative p-2 cursor-pointer" onClick={toggleMenu}>
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                <button
+                    className="md:hidden text-white z-[10000] relative p-3 cursor-pointer rounded-lg hover:bg-white/10 transition-colors"
+                    onClick={toggleMenu}
+                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                >
+                    <div className="relative w-6 h-6">
+                        <span
+                            className={`absolute left-0 w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
+                                isMenuOpen ? 'top-3 rotate-45' : 'top-1'
+                            }`}
+                        />
+                        <span
+                            className={`absolute left-0 top-3 w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
+                                isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
+                            }`}
+                        />
+                        <span
+                            className={`absolute left-0 w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
+                                isMenuOpen ? 'top-3 -rotate-45' : 'top-5'
+                            }`}
+                        />
+                    </div>
                 </button>
 
-                {/* Mobile Menu Overlay */}
-                {isMenuOpen && (
-                    <>
-                        {/* Solid backdrop layer */}
-                        <div
-                            className="fixed inset-0 bg-black z-[9998] md:hidden"
-                            onClick={toggleMenu}
-                        />
-
-                        {/* Menu content */}
-                        <div
-                            className="fixed inset-0 z-[9999] md:hidden flex items-center justify-center"
-                            style={{ background: '#000000' }}
-                        >
-                            {/* Subtle gradient background */}
-                            <div
-                                className="absolute inset-0 opacity-20"
-                                style={{
-                                    background: 'radial-gradient(circle at 50% 50%, rgba(138, 92, 255, 0.3), transparent 60%)',
-                                }}
-                            />
-
-                            {/* Menu container */}
-                            <nav className="relative z-10 flex flex-col items-center gap-6 px-8">
-                                <Link
-                                    to="/"
-                                    className="text-xl font-semibold text-white hover:text-purple-400 transition-colors duration-200 py-2"
-                                    onClick={toggleMenu}
-                                >
-                                    Home
-                                </Link>
-                                <div className="w-16 h-px bg-white/10" />
-                                <Link
-                                    to="/about"
-                                    className="text-xl font-semibold text-white hover:text-purple-400 transition-colors duration-200 py-2"
-                                    onClick={toggleMenu}
-                                >
-                                    About
-                                </Link>
-                                <div className="w-16 h-px bg-white/10" />
-                                <Link
-                                    to="/projects"
-                                    className="text-xl font-semibold text-white hover:text-purple-400 transition-colors duration-200 py-2"
-                                    onClick={toggleMenu}
-                                >
-                                    Projects
-                                </Link>
-                                <div className="w-16 h-px bg-white/10" />
-                                <Link
-                                    to="/contact"
-                                    className="text-xl font-semibold text-white hover:text-purple-400 transition-colors duration-200 py-2"
-                                    onClick={toggleMenu}
-                                >
-                                    Contact
-                                </Link>
-                            </nav>
-
-                            {/* Subtle decorative elements */}
-                            <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl" />
-                            <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl" />
-                        </div>
-                    </>
-                )}
             </nav>
+
+            {/* Mobile Menu Sidebar */}
+            <div className="md:hidden">
+                {/* Backdrop overlay */}
+                <div
+                    className={`fixed inset-0 bg-black/70 z-[10000] transition-opacity duration-300 ${
+                        isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                    onClick={toggleMenu}
+                />
+
+                {/* Sidebar panel */}
+                <div
+                    className={`fixed top-0 right-0 h-full w-72 bg-black/80 backdrop-blur-xl z-[10001] transform transition-transform duration-300 ease-out ${
+                        isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}
+                >
+                    {/* Gradient border on left edge */}
+                    <div className="absolute top-0 left-0 w-[1px] h-full bg-gradient-to-b from-purple-500/50 via-pink-500/30 to-transparent" />
+
+                    {/* Close button */}
+                    <div className="flex justify-end p-6">
+                        <button
+                            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                            onClick={toggleMenu}
+                            aria-label="Close menu"
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    {/* Logo */}
+                    <div className="px-6 pb-6 border-b border-white/10">
+                        <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            ZainDev
+                        </span>
+                    </div>
+
+                    {/* Menu links */}
+                    <nav className="p-6 flex flex-col gap-2">
+                        {[
+                            { to: "/", label: "Home" },
+                            { to: "/about", label: "About" },
+                            { to: "/projects", label: "Projects" },
+                            { to: "/contact", label: "Contact" },
+                        ].map((item) => (
+                            <Link
+                                key={item.to}
+                                to={item.to}
+                                className="py-3 px-4 text-lg font-medium text-white hover:text-purple-400 rounded-xl hover:bg-white/5 active:bg-white/10 transition-colors"
+                                onClick={toggleMenu}
+                            >
+                                {item.label}
+                            </Link>
+                        ))}
+                    </nav>
+
+                    {/* Footer */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
+                        <p className="text-sm text-gray-500 text-center">Portfolio 2024</p>
+                    </div>
+
+                    {/* Subtle glow effects */}
+                    <div className="absolute top-1/4 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute bottom-1/4 right-0 w-24 h-24 bg-pink-500/5 rounded-full blur-3xl pointer-events-none" />
+                </div>
+            </div>
             {/* Main Content Area */}
             <main className="relative z-10 pt-20">
                 <Outlet />

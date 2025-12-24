@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ScrollText from "../../components/ScrollText";
+import ScrollVelocity from "../../components/ScrollVelocity";
 
 export default function Home() {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
@@ -109,6 +110,15 @@ export default function Home() {
             className="text-center"
           />
         </div>
+      </section>
+
+      {/* About Me - ScrollVelocity Section */}
+      <section className="py-16 overflow-hidden">
+        <ScrollVelocity
+          texts={["React Developer", "UI/UX Enthusiast"]}
+          velocity={80}
+          className="text-4xl md:text-6xl font-bold text-white/50"
+        />
       </section>
 
       {/* Skills Section */}
