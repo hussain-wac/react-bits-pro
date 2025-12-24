@@ -104,6 +104,7 @@ export default function Projects() {
               {projects.map((project, index) => (
                 <Card
                   key={index}
+                  className="border-radius-full"
                   // style={{ position: "relative", overflow: "hidden" }}
                 >
                   <ColorBends

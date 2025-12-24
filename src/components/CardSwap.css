@@ -14,7 +14,7 @@
   top: 50%;
   left: 50%;
   border-radius: 12px;
-  border: 1px solid #fff;
+  border: none;
   background: #000;
 
   transform-style: preserve-3d;

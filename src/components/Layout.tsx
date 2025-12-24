@@ -67,7 +67,7 @@ const Layout = () => {
             {/* Shared Navigation */}
             <nav className="fixed top-0 left-0 right-0 flex justify-between items-center p-6 md:p-8 bg-black/30 backdrop-blur-md z-50">
                 <Link to="/" className="text-2xl font-bold" onClick={() => setIsMenuOpen(false)}>
-                    Portfolio
+                    ZainDev
                 </Link>
                 <div className="hidden md:block">
                     <GooeyNav

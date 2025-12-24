@@ -1,5 +1,4 @@
 import { useState } from "react";
-import GlassSurface from "../../components/GlassSurface";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -16,9 +15,6 @@ export default function Contact() {
 
   return (
     <>
-
-
-
       {/* Contact Content */}
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 transition-opacity duration-5000 ease-in-out">
         <h1 className="text-5xl md:text-7xl font-bold mb-6">Get in Touch</h1>
@@ -27,17 +23,8 @@ export default function Contact() {
         </p>
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <GlassSurface
-            width="100%"
-            height="auto"
-            displace={0.1}
-            distortionScale={-130}
-            opacity={0.85}
-            brightness={45}
-            borderRadius={24}
-          >
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl">
             <form onSubmit={handleSubmit} className="p-8 space-y-6">
-
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
                 <input
@@ -81,69 +68,39 @@ export default function Contact() {
                 Send Message
               </button>
             </form>
-          </GlassSurface>
+          </div>
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <GlassSurface
-              width="100%"
-              height="auto"
-              displace={0.1}
-              distortionScale={-120}
-              opacity={0.7}
-              brightness={45}
-              borderRadius={16}
-            >
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2">Email</h3>
-                <a
-                  href="mailto:hello@johndoe.dev"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  hello@johndoe.dev
-                </a>
-              </div>
-            </GlassSurface>
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-lg font-semibold mb-2">Email</h3>
+              <a
+                href="mailto: l7creationss@gmail.com"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                l7creationss@gmail.com
+              </a>
+            </div>
 
-            <GlassSurface
-              width="100%"
-              height="auto"
-              displace={0.1}
-              distortionScale={-120}
-              opacity={0.7}
-              brightness={45}
-              borderRadius={16}
-            >
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2">Location</h3>
-                <p className="text-gray-300">San Francisco, CA</p>
-              </div>
-            </GlassSurface>
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-lg font-semibold mb-2">Location</h3>
+              <p className="text-gray-300">Kochi ,Kerala</p>
+            </div>
 
-            <GlassSurface
-              width="100%"
-              height="auto"
-              displace={0.1}
-              distortionScale={-120}
-              opacity={0.7}
-              brightness={45}
-              borderRadius={16}
-            >
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Social</h3>
-                <div className="flex gap-4">
-                  {["GitHub", "Twitter", "LinkedIn", "Dribbble"].map((social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="px-3 py-1 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-colors"
-                    >
-                      {social}
-                    </a>
-                  ))}
-                </div>
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
+              <h3 className="text-lg font-semibold mb-4">Social</h3>
+              <div className="flex gap-4">
+                {["GitHub", "Twitter", "LinkedIn", "Dribbble"].map((social) => (
+                  <a
+                    key={social}
+                    href="#"
+                    className="px-3 py-1 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-colors"
+                  >
+                    {social}
+                  </a>
+                ))}
               </div>
-            </GlassSurface>
+            </div>
           </div>
         </div>
       </div>
